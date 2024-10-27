@@ -9,14 +9,12 @@ public class ItemsSO : ScriptableObject
     public enum ItemType { coin, sword }
     public ItemType type;
 
+    // this is just to visually show its been collected
     public bool isCollected;
 
     public void CollectItem()
     {
-        if (!isCollected)
-        {
-            isCollected = true;
-            Debug.Log($"{type} is collected.");
-        }
+        isCollected = true;
+        Debug.Log($"{type} is collected.");
     }
 }

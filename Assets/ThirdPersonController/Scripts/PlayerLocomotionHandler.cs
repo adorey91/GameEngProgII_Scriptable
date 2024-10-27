@@ -146,15 +146,19 @@ public class PlayerLocomotionHandler : MonoBehaviour
             ItemHolder chest = other.GetComponent<ItemHolder>();
             ItemsSO chestItem = chest.chestItem;
 
-            if (!collectedItems.Contains(chestItem))
-            {
-                chestItem.CollectItem();
-                collectedItems.Add(chestItem);
-            }
-            else
-            {
-                Debug.Log($"{chestItem} was already collected and cannot be picked up again.");
-            }
+            chestItem.CollectItem();
+
+
+            // should be apart of challenge
+            //if (!collectedItems.Contains(chestItem))
+            //{
+            //    chestItem.CollectItem();
+            //    collectedItems.Add(chestItem);
+            //}
+            //else
+            //{
+            //    Debug.Log($"{chestItem} was already collected and cannot be picked up again.");
+            //}
         }
     }
 }
