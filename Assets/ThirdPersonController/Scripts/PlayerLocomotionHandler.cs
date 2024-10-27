@@ -31,7 +31,7 @@ public class PlayerLocomotionHandler : MonoBehaviour
     private bool isJumping = false; // Track if player is currently jumping
 
     [SerializeField] private CharacterStatsSO playerStats;
-    //[SerializeField] private List<ItemsSO> collectedItems = new List<ItemsSO>();
+    [SerializeField] private List<ItemsSO> collectedItems = new List<ItemsSO>();
 
     private void Awake()
     {
@@ -47,7 +47,6 @@ public class PlayerLocomotionHandler : MonoBehaviour
     {
         if (playerStats.NameChanged())
         {
-
             Debug.Log($"Character: {playerStats.characterName}, Health: {playerStats.health}, Attack Power: {playerStats.attackPower}, Walking Speed: {playerStats.walkingSpeed}, Jogging Speed: {playerStats.walkingSpeed}, Sprinting Speed: {playerStats.sprintingSpeed}");
         }
     }
@@ -147,7 +146,15 @@ public class PlayerLocomotionHandler : MonoBehaviour
             ItemHolder chest = other.GetComponent<ItemHolder>();
             ItemsSO chestItem = chest.chestItem;
 
-            chestItem.CollectItem();
+            if (!collectedItems.Contains(chestItem))
+            {
+                chestItem.CollectItem();
+                collectedItems.Add(chestItem);
+            }
+            else
+            {
+                Debug.Log($"{chestItem} was already collected and cannot be picked up again.");
+            }
         }
     }
 }

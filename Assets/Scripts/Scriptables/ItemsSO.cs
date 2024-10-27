@@ -18,9 +18,5 @@ public class ItemsSO : ScriptableObject
             isCollected = true;
             Debug.Log($"{type} is collected.");
         }
-        else
-        {
-            Debug.Log($"{type} was already collected and cannot be picked up again.");
-        }
     }
 }
