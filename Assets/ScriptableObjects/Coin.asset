@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   type: 0
-  isCollected: 1
+  isCollected: 0
